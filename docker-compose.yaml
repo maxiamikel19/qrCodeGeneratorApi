@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:16
+    container_name: pg-text-qrcode
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev1234
+      POSTGRES_DB: qrcodeDb

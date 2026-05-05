@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.maxiamikel.qrCodeGeneratorApi.dto.TextoRequest;
@@ -19,19 +18,16 @@ import com.maxiamikel.qrCodeGeneratorApi.service.QRCodeService;
 import com.maxiamikel.qrCodeGeneratorApi.service.TextoService;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/textos")
 @CrossOrigin("*")
+@RequiredArgsConstructor
 public class TextoController {
 
     private final TextoService textoService;
     private final QRCodeService qrCodeService;
-
-    public TextoController(TextoService textoService, QRCodeService qrCodeService) {
-        this.textoService = textoService;
-        this.qrCodeService = qrCodeService;
-    }
 
     @GetMapping
     public List<Texto> listar() {
